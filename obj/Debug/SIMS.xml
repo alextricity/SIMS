@@ -99,5 +99,15 @@ MAIN
 InitializeComponent
 </summary>
 </member>
+<member name="T:SIMS.Credits">
+<summary>
+Credits
+</summary>
+</member>
+<member name="M:SIMS.Credits.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 </members>
 </doc>

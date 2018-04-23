@@ -7,45 +7,29 @@
         mc:Ignorable="d"
         Closing="Shutdown"
         WindowStyle="None"
-        Title="SOS SIMS" Height="450" Width="800" Opacity="0.9" Icon="MEDIA/lifesaver.png" WindowStartupLocation="CenterScreen">
-    <Grid DockPanel.Dock="Right"
-      HorizontalAlignment="Right">
+        AllowsTransparency="True"
+        BorderThickness="0"
+        Background="Transparent"
+        Height="450" Width="800" Opacity="0.9" Icon="MEDIA/lifesaver.png" WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid>
+        <Button x:Name="MinimizeButton" Mouse.PreviewMouseUp="Shutdown" Panel.ZIndex="999" Width="22" Height="22" HorizontalAlignment="right" VerticalAlignment="Top" Margin="0,25,0,0" >
+            <Button.Background>
+                <ImageBrush ImageSource="MEDIA/application-exit.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="MaximizeButton" Mouse.PreviewMouseUp="Shutdown" />
+        <Button x:Name="CloseButton" Mouse.PreviewMouseUp="Shutdown"/>
 
-
-        <StackPanel Orientation="Horizontal"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center">
-
-        </StackPanel>
-
-        <Ribbon x:Name="Ribbon" SelectedIndex="0" Margin="0,-27,0,0">
-          
+        <Ribbon x:Name="Ribbon" SelectedIndex="0" VerticalAlignment="Top" >
             <!-- Help Pane, located at the right-hand side -->
-            <Ribbon.HelpPaneContent>
-                <RibbonGroup Width="200">
-                    <RibbonButton Width="10" SmallImageSource="MEDIA/lifesaver.png" />
-
-                    <RibbonButton x:Name="MinimizeButton" Mouse.PreviewMouseUp="Shutdown"  SmallImageSource="MEDIA/lifesaver.png"/>
-                    <RibbonButton x:Name="MaximizeButton" Mouse.PreviewMouseUp="Shutdown" SmallImageSource="MEDIA/lifesaver.png"/>
-                    <RibbonButton x:Name="CloseButton" Mouse.PreviewMouseUp="Shutdown" SmallImageSource="MEDIA/lifesaver.png"/>
-                </RibbonGroup>
+            <Ribbon.HelpPaneContent >
+                <RibbonButton IsEnabled="False"></RibbonButton>
             </Ribbon.HelpPaneContent>
-            <!--
-            <Ribbon.QuickAccessToolBar>
-                <RibbonQuickAccessToolBar>
-                    <RibbonButton x:Name ="Save" SmallImageSource="MEDIA/lifesaver.png" />
-                    <RibbonSplitButton x:Name ="Undo" SmallImageSource="MEDIA/lifesaver.png" >
-                        <RibbonSplitMenuItem Header="Undo action #1" />
-                        <RibbonSplitMenuItem Header="Undo action #2" />
-                        <RibbonSplitMenuItem Header="Undo action #3" />
-                    </RibbonSplitButton>
-                    <RibbonSplitButton x:Name="Redo" SmallImageSource="MEDIA/lifesaver.png" >
-                        <RibbonSplitMenuItem Header="Redo action #1" />
-                        <RibbonSplitMenuItem Header="Redo action #2" />
-                    </RibbonSplitButton>
-                </RibbonQuickAccessToolBar>
-            </Ribbon.QuickAccessToolBar>
-            -->
+
+         
        
     
             <Ribbon.ApplicationMenu>
@@ -54,9 +38,9 @@
                     <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA/lifesaver.png" Mouse.PreviewMouseUp="Shutdown"/>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
-            <!-- Ribbon Tab #1: Home -->
+            <!-- Ribbon Tab #1: Home
+
             <RibbonTab Header="Home" KeyTip="H" >
-                <!-- Home/Clipboard group-->
                 <RibbonGroup x:Name="ClipboardGroup" Header="Clipboard">
                     <RibbonMenuButton LargeImageSource="MEDIA/lifesaver.png" Label="Paste" KeyTip="V">
                         <RibbonMenuItem ImageSource="MEDIA/lifesaver.png" Header="Keep Text Only" KeyTip="T"/>
@@ -66,24 +50,24 @@
                     <RibbonButton SmallImageSource="MEDIA/lifesaver.png" Label="Copy" KeyTip="C" />
                     <RibbonButton SmallImageSource="MEDIA/lifesaver.png" Label="Format Painter" KeyTip="FP" />
                 </RibbonGroup>
-                <!-- Home/Colors group-->
                 <RibbonGroup x:Name="Color" Header="Colors">
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Red" KeyTip="R" IsChecked="True"/>
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Green" KeyTip="G"/>
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
-            <!-- Ribbon Tab #2: POS -->
+        
+             Ribbon Tab #2: POS -->
             <RibbonTab Header="Point Of Sale" KeyTip="L">
                 <!-- Launch/Games group-->
 
                 <RibbonGroup x:Name="NewOrder" Header="Pay Balance">
-                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
+                    <RibbonButton LargeImageSource="MEDIA\pay.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
                 </RibbonGroup>
                 <RibbonButton Label="" Width="40" IsEnabled="False" />
                 <RibbonGroup x:Name="LoadCustomer" Header="1, Load Customer">
-                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="New Customer" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Repeat Customer" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/newuser.png" Label="New Customer"  KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/returnuser.png" Label="Repeat Customer" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="Cart" Header="2, New Order">
                     <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Add Items" KeyTip="B" Width="65"/>
