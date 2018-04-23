@@ -1,0 +1,15 @@
+﻿<Window x:Class="Logoscreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMS"
+        mc:Ignorable="d"
+        Title="Logoscreen"  Height="450" Width="450" Icon="MEDIA/lifesaver.png" WindowStyle="None" AllowsTransparency="true" WindowStartupLocation="CenterScreen" Background="Transparent">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" Text="SIMS" VerticalAlignment="Top" Foreground="#FFCF3F09" FontSize="72" FontFamily="/SIMS;component/MEDIA/#GreatShake" Margin="148,59,137,0" Height="78" Width="165" />
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" TextAlignment="Center" FontSize="28" VerticalAlignment="Bottom" Foreground="#FFCF3F09" Margin="64,0,63,101" Width="323" FontFamily="High Tower Text" Height="36"><Run Text="Superior One Source"/><LineBreak/></TextBlock>
+        <Image HorizontalAlignment="Center" Height="166" VerticalAlignment="Center" Width="154" Source="MEDIA/lifesaver.PNG" Opacity="0.8" />
+        <TextBlock HorizontalAlignment="Center"  TextWrapping="Wrap" TextAlignment="Center" FontSize="18" VerticalAlignment="Bottom" Foreground="#FFCF3F09" Margin="64,0,63,60" Width="323" FontFamily="High Tower Text" Height="36" Text="Sales and Inventory Management System"/>
+    </Grid>
+</Window>
