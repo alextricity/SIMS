@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SIMS"
         mc:Ignorable="d"
-        Title="MAIN" Height="450" Width="800">
+        Closing="Shutdown"
+        Title="SOS SIMS" Height="450" Width="800" Opacity="0.9" Icon="MEDIA/lifesaver.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <Ribbon x:Name="Ribbon" SelectedIndex="0">
             <!-- Help Pane, located at the right-hand side -->
@@ -31,7 +32,7 @@
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu KeyTip="F">
                     <RibbonApplicationMenuItem Header="Options" ImageSource="MEDIA/lifesaver.png" />
-                    <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA/lifesaver.png" />
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA/lifesaver.png" Mouse.PreviewMouseUp="Shutdown"/>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
             <!-- Ribbon Tab #1: Home -->
@@ -53,16 +54,110 @@
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
-            <!-- Ribbon Tab #2: Launch -->
-            <RibbonTab Header="Launch" KeyTip="L">
+            <!-- Ribbon Tab #2: POS -->
+            <RibbonTab Header="Point Of Sale" KeyTip="L">
+                <!-- Launch/Games group-->
+
+                <RibbonGroup x:Name="NewOrder" Header="Pay Balance">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
+                </RibbonGroup>
+                <RibbonSeparator Width="50"/>
+                <RibbonGroup x:Name="LoadCustomer" Header="1, Load Customer">
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="New Customer" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Repeat Customer" KeyTip="B"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="Cart" Header="2, New Order">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Add Items" KeyTip="B" Width="65"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="Checkout" Header="3, Quote or Check Out">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Prepare Quote" KeyTip="q"/>
+                    <RibbonButton Label="" Width="16" IsEnabled="False" />
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Save Quote" KeyTip="w" ToolTip="Once a quote is built, save to database"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Print Quote" KeyTip="e" ToolTip="Once a quote is built, save to database"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Send Quote" KeyTip="r" ToolTip="Once a quote is built, send to customer"/>
+                    <RibbonButton Label="" Width="10" IsEnabled="False" />
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Check Out Selected Items" KeyTip="B"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #3: Users -->
+            <RibbonTab Header="Manage Users" KeyTip="U">
                 <!-- Launch/Applications group-->
-                <RibbonGroup x:Name="DesktopApplication" Header="Desktop Applications">
+                <RibbonGroup x:Name="NewUser" Header="New User">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="New" KeyTip="B"/>
                 </RibbonGroup>
                 <!-- Launch/Games group-->
-                <RibbonGroup x:Name="App" Header="Apps">
+                <RibbonGroup x:Name="ModifyUser" Header="Modify User">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Modify" KeyTip="B" Width="65"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="ModifyUserType" Header="Set User Type">
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="System Admin" KeyTip="R"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Dep. Supervisor" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Warehouse Tech" KeyTip="G"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Ordering" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Sales" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="DISABLED" KeyTip="B"  IsChecked="True"/>
+                </RibbonGroup>
+                <RibbonGroup x:Name="DeleteUser" Header="Delete User">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Delete" KeyTip="B" Width="65"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #3: New Shipment -->
+            <RibbonTab Header="Inventory" KeyTip="L">
+                <!-- Launch/Applications group-->
+                <RibbonGroup x:Name="ManageItems" Header="Manage Items">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Delete" KeyTip="B"/>
+                </RibbonGroup>
+                <!-- Launch/Games group-->
+                <RibbonGroup x:Name="WarehouseTasks" Header="Warehouse Tasks">
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Add Inventory" KeyTip="B" ToolTip="New Shipment, Return, etc"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Remove Inventory" KeyTip="B" ToolTip="Sale, Removed, etc"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Get Item Info" KeyTip="B" ToolTip="Scan to get info about an item"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Audit" KeyTip="B"  ToolTip="Get all details about an item"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #5: Clients -->
+            <RibbonTab Header="Customers" KeyTip="L">
+                <!-- Launch/Applications group-->
+                <RibbonGroup x:Name="ManageCustomers" Header="Manage Customers">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Delete" KeyTip="B"/>
+                </RibbonGroup>
+                <!-- -->
+                <RibbonGroup x:Name="ReportCustomers" Header="Customer Details">
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Detailed Info" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Sales Report" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Payment History" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Audit all actions" KeyTip="B"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab #6: supplier -->
+            <RibbonTab Header="Suppliers" KeyTip="L">
+                <!-- Launch/Applications group-->
+                <RibbonGroup x:Name="ManageSupplier" Header="Manage Supplier">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Delete" KeyTip="B"/>
+                </RibbonGroup>
+                <!-- -->
+                <RibbonGroup x:Name="ReportSupplier" Header="Supplier Details">
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Detailed Info" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Product Report" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Inventory History" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Audit all actions" KeyTip="B"/>
+                </RibbonGroup>
+            </RibbonTab>
+            <!-- Ribbon Tab -->
+            <RibbonTab Header="Ledger" KeyTip="U">
+                <!-- -->
+                <RibbonGroup x:Name="Ledger" Header="Ledger">
+                    <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="View All Transactions" KeyTip="R"/>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
+        
 
     </Grid>
 </Window>

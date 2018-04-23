@@ -109,7 +109,7 @@
     <Compile Include="Logoscreen.xaml.vb">
       <DependentUpon>Logoscreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Users.xaml.vb">
+    <Compile Include="SecondaryWindows\Users.xaml.vb">
       <DependentUpon>Users.xaml</DependentUpon>
     </Compile>
     <Compile Include="MAIN.xaml.vb">
@@ -159,7 +159,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Page Include="Users.xaml">
+    <Page Include="SecondaryWindows\Users.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
