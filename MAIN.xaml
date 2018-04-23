@@ -6,14 +6,31 @@
         xmlns:local="clr-namespace:SIMS"
         mc:Ignorable="d"
         Closing="Shutdown"
+        WindowStyle="None"
         Title="SOS SIMS" Height="450" Width="800" Opacity="0.9" Icon="MEDIA/lifesaver.png" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Ribbon x:Name="Ribbon" SelectedIndex="0">
+    <Grid DockPanel.Dock="Right"
+      HorizontalAlignment="Right">
+
+
+        <StackPanel Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center">
+
+        </StackPanel>
+
+        <Ribbon x:Name="Ribbon" SelectedIndex="0" Margin="0,-27,0,0">
+          
             <!-- Help Pane, located at the right-hand side -->
             <Ribbon.HelpPaneContent>
-                <RibbonButton SmallImageSource="MEDIA/lifesaver.png" />
+                <RibbonGroup Width="200">
+                    <RibbonButton Width="10" SmallImageSource="MEDIA/lifesaver.png" />
+
+                    <RibbonButton x:Name="MinimizeButton" Mouse.PreviewMouseUp="Shutdown"  SmallImageSource="MEDIA/lifesaver.png"/>
+                    <RibbonButton x:Name="MaximizeButton" Mouse.PreviewMouseUp="Shutdown" SmallImageSource="MEDIA/lifesaver.png"/>
+                    <RibbonButton x:Name="CloseButton" Mouse.PreviewMouseUp="Shutdown" SmallImageSource="MEDIA/lifesaver.png"/>
+                </RibbonGroup>
             </Ribbon.HelpPaneContent>
-            <!-- Quick Access Toolbar - located at the upper-left corner -->
+            <!--
             <Ribbon.QuickAccessToolBar>
                 <RibbonQuickAccessToolBar>
                     <RibbonButton x:Name ="Save" SmallImageSource="MEDIA/lifesaver.png" />
@@ -28,7 +45,9 @@
                     </RibbonSplitButton>
                 </RibbonQuickAccessToolBar>
             </Ribbon.QuickAccessToolBar>
-            <!-- Application Menu, located at the left-hand side (down arrow) -->
+            -->
+       
+    
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu KeyTip="F">
                     <RibbonApplicationMenuItem Header="Options" ImageSource="MEDIA/lifesaver.png" />
@@ -61,7 +80,7 @@
                 <RibbonGroup x:Name="NewOrder" Header="Pay Balance">
                     <RibbonButton LargeImageSource="MEDIA/lifesaver.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
                 </RibbonGroup>
-                <RibbonSeparator Width="50"/>
+                <RibbonButton Label="" Width="40" IsEnabled="False" />
                 <RibbonGroup x:Name="LoadCustomer" Header="1, Load Customer">
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="New Customer" KeyTip="B"/>
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Repeat Customer" KeyTip="B"/>
