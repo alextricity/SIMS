@@ -77,8 +77,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
@@ -108,13 +117,14 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Logoscreen.xaml.vb">
-      <DependentUpon>Logoscreen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MEDIA\DataSet1.Designer.vb">
+    <Compile Include="SQL.vb" />
+    <Compile Include="DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Logoscreen.xaml.vb">
+      <DependentUpon>Logoscreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="SecondaryWindows\Users.xaml.vb">
       <DependentUpon>Users.xaml</DependentUpon>
@@ -182,18 +192,112 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Resource Include="MEDIA\GreatShake.ttf" />
-    <None Include="MEDIA\DataSet1.xsc">
+    <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="MEDIA\DataSet1.xsd">
-      <SubType>Designer</SubType>
+    <None Include="DataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="MEDIA\DataSet1.xss">
+    <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\app.manifest" />
+    <None Include="My Project\DataSources\DataSet1.datasource" />
+    <None Include="My Project\DataSources\DataSet1.InvoiceJoinDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.InvoiceJoinRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.InvoiceJoinRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.InvoiceJoinRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.LogsDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.LogsRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.LogsRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.LogsRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbImportDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbImportRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbImportRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbImportRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCategoryDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCategoryRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCategoryRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCategoryRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCompanyDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCompanyRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCompanyRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCompanyRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCustomerDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCustomerRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCustomerRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblCustomerRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblEmployeeDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblEmployeeRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblEmployeeRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblEmployeeRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblInvoiceDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblInvoiceRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblInvoiceRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblInvoiceRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblProductDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblProductRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblProductRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblProductRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseJoinDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseJoinRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseJoinRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseJoinRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblPurchaseRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblSalesManDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblSalesManRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblSalesManRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblSalesManRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblTempStocksDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblTempStocksRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblTempStocksRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tblTempStocksRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbStaffDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbStaffRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbStaffRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbStaffRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSubcategoryDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSubcategoryRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSubcategoryRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSubcategoryRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSupplierDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSupplierRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSupplierRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbSupplierRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbUserDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbUserRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbUserRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.tbUserRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\DataSet1.UsersDataTable.datasource" />
+    <None Include="My Project\DataSources\DataSet1.UsersRow.datasource" />
+    <None Include="My Project\DataSources\DataSet1.UsersRowChangeEvent.datasource" />
+    <None Include="My Project\DataSources\DataSet1.UsersRowChangeEventHandler.datasource" />
+    <None Include="My Project\DataSources\MySettings.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.InvoiceJoinTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.LogsTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.TableAdapterManager.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tbImportTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblCategoryTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblCompanyTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblCustomerTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblEmployeeTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblInvoiceTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblProductTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblPurchaseJoinTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblPurchaseTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblSalesManTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tblTempStocksTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tbStaffTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tbSubcategoryTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tbSupplierTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.tbUserTableAdapter.datasource" />
+    <None Include="My Project\DataSources\SIMS.DataSet1TableAdapters.UsersTableAdapter.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -207,37 +311,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MEDIA\WinIcon.png" />
+    <Resource Include="MEDIA\IMG\WinIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MEDIA\lifesaver.png" />
+    <Resource Include="MEDIA\IMG\lifesaver.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="MEDIA\box.png" />
-    <Resource Include="MEDIA\newuser.png" />
-    <Resource Include="MEDIA\pay.png" />
-    <Resource Include="MEDIA\application-exit.png" />
-    <Resource Include="MEDIA\returnuser.png" />
-    <Resource Include="MEDIA\Credit cards.png" />
-    <Resource Include="MEDIA\Empty shopping cart.png" />
-    <Resource Include="MEDIA\Full shopping cart.png" />
-    <Resource Include="MEDIA\Shipping.png" />
-    <Resource Include="MEDIA\Shopping bag.png" />
-    <Resource Include="MEDIA\application-postscript.png" />
-    <Resource Include="MEDIA\application-vnd.ms-access.png" />
-    <Resource Include="MEDIA\application-vnd.ms-excel.png" />
-    <Resource Include="MEDIA\application-x-mimearchive.png" />
-    <Resource Include="MEDIA\contact-new.png" />
-    <Resource Include="MEDIA\preferences-other.png" />
-    <Resource Include="MEDIA\hat.png" />
-    <Resource Include="MEDIA\trash.png" />
-    <Resource Include="MEDIA\product.png" />
-    <Resource Include="MEDIA\page-zoom.png" />
-    <Resource Include="MEDIA\kspread.png" />
-    <Resource Include="MEDIA\list-add-user.png" />
-    <Resource Include="MEDIA\preferences-desktop-user.png" />
-    <Resource Include="MEDIA\preferences-contact-list.png" />
-    <Resource Include="MEDIA\kwalletmanager.png" />
+    <Resource Include="MEDIA\IMG\box.png" />
+    <Resource Include="MEDIA\IMG\newuser.png" />
+    <Resource Include="MEDIA\IMG\pay.png" />
+    <Resource Include="MEDIA\IMG\application-exit.png" />
+    <Resource Include="MEDIA\IMG\returnuser.png" />
+    <Resource Include="MEDIA\IMG\Credit cards.png" />
+    <Resource Include="MEDIA\IMG\Empty shopping cart.png" />
+    <Resource Include="MEDIA\IMG\Full shopping cart.png" />
+    <Resource Include="MEDIA\IMG\Shipping.png" />
+    <Resource Include="MEDIA\IMG\Shopping bag.png" />
+    <Resource Include="MEDIA\IMG\application-postscript.png" />
+    <Resource Include="MEDIA\IMG\application-vnd.ms-access.png" />
+    <Resource Include="MEDIA\IMG\application-vnd.ms-excel.png" />
+    <Resource Include="MEDIA\IMG\application-x-mimearchive.png" />
+    <Resource Include="MEDIA\IMG\contact-new.png" />
+    <Resource Include="MEDIA\IMG\preferences-other.png" />
+    <Resource Include="MEDIA\IMG\hat.png" />
+    <Resource Include="MEDIA\IMG\trash.png" />
+    <Resource Include="MEDIA\IMG\product.png" />
+    <Resource Include="MEDIA\IMG\page-zoom.png" />
+    <Resource Include="MEDIA\IMG\kspread.png" />
+    <Resource Include="MEDIA\IMG\list-add-user.png" />
+    <Resource Include="MEDIA\IMG\preferences-desktop-user.png" />
+    <Resource Include="MEDIA\IMG\preferences-contact-list.png" />
+    <Resource Include="MEDIA\IMG\kwalletmanager.png" />
     <Content Include="MEDIA\System.Windows.Forms.Ribbon.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

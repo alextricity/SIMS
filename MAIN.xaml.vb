@@ -12,16 +12,5 @@ Public Class MAIN
         System.Windows.Application.Current.Shutdown()
     End Sub
 
-    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, culture As CultureInfo) As Object Implements IValueConverter.ConvertBack
-        Throw New NotImplementedException()
-    End Function
 
-    Dim dataEntities As Registration1 = New MSDataSetGenerator
-    Private Sub UserQuery()
-
-
-        Dim query = "select * from Users"
-
-        UserGrid.ItemsSource = query.ToList()
-    End Sub
 End Class

@@ -69,6 +69,81 @@ InitializeComponent
 Application Entry Point.
 </summary>
 </member>
+<member name="T:SIMS.MAIN">
+<summary>
+MAIN
+</summary>
+</member>
+<member name="M:SIMS.MAIN.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:SIMS.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:SIMS.DataSet1.UsersDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:SIMS.DataSet1.UsersRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:SIMS.DataSet1.UsersRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:SIMS.DataSet1TableAdapters.UsersTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:SIMS.DataSet1TableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:SIMS.DataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(SIMS.DataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:SIMS.DataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(SIMS.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:SIMS.DataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(SIMS.DataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:SIMS.DataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:SIMS.DataSet1TableAdapters.TableAdapterManager.UpdateAll(SIMS.DataSet1)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:SIMS.DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:SIMS.DataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="T:SIMS.Logoscreen">
 <summary>
 Logoscreen
@@ -85,16 +160,6 @@ Users
 </summary>
 </member>
 <member name="M:SIMS.Users.InitializeComponent">
-<summary>
-InitializeComponent
-</summary>
-</member>
-<member name="T:SIMS.MAIN">
-<summary>
-MAIN
-</summary>
-</member>
-<member name="M:SIMS.MAIN.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
