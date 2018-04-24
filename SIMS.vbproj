@@ -196,10 +196,31 @@
     <Resource Include="MEDIA\lifesaver.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="MEDIA\box.png" />
     <Resource Include="MEDIA\newuser.png" />
     <Resource Include="MEDIA\pay.png" />
     <Resource Include="MEDIA\application-exit.png" />
     <Resource Include="MEDIA\returnuser.png" />
+    <Resource Include="MEDIA\Credit cards.png" />
+    <Resource Include="MEDIA\Empty shopping cart.png" />
+    <Resource Include="MEDIA\Full shopping cart.png" />
+    <Resource Include="MEDIA\Shipping.png" />
+    <Resource Include="MEDIA\Shopping bag.png" />
+    <Resource Include="MEDIA\application-postscript.png" />
+    <Resource Include="MEDIA\application-vnd.ms-access.png" />
+    <Resource Include="MEDIA\application-vnd.ms-excel.png" />
+    <Resource Include="MEDIA\application-x-mimearchive.png" />
+    <Resource Include="MEDIA\contact-new.png" />
+    <Resource Include="MEDIA\preferences-other.png" />
+    <Resource Include="MEDIA\hat.png" />
+    <Resource Include="MEDIA\trash.png" />
+    <Resource Include="MEDIA\product.png" />
+    <Resource Include="MEDIA\page-zoom.png" />
+    <Resource Include="MEDIA\kspread.png" />
+    <Resource Include="MEDIA\list-add-user.png" />
+    <Resource Include="MEDIA\preferences-desktop-user.png" />
+    <Resource Include="MEDIA\preferences-contact-list.png" />
+    <Resource Include="MEDIA\kwalletmanager.png" />
     <Content Include="MEDIA\System.Windows.Forms.Ribbon.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
