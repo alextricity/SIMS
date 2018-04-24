@@ -81,6 +81,7 @@
     <Reference Include="PresentationFramework.Classic" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="system.windows.controls.ribbon" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -109,6 +110,11 @@
     </Compile>
     <Compile Include="Logoscreen.xaml.vb">
       <DependentUpon>Logoscreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MEDIA\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="SecondaryWindows\Users.xaml.vb">
       <DependentUpon>Users.xaml</DependentUpon>
@@ -176,6 +182,17 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Resource Include="MEDIA\GreatShake.ttf" />
+    <None Include="MEDIA\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MEDIA\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="MEDIA\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
