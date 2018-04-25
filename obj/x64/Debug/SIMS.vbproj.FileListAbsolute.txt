@@ -92,3 +92,5 @@ C:\Users\aroberts\AppData\Roaming\SIMS\obj\x64\Debug\SIMS.vbproj.CoreCompileInpu
 C:\Users\aroberts\AppData\Roaming\SIMS\obj\x64\Debug\SIMS.exe
 C:\Users\aroberts\AppData\Roaming\SIMS\obj\x64\Debug\SIMS.xml
 C:\Users\aroberts\AppData\Roaming\SIMS\obj\x64\Debug\SIMS.pdb
+C:\Users\aroberts\AppData\Roaming\SIMS\bin\x64\Debug\mysql.data.dll
+C:\Users\aroberts\AppData\Roaming\SIMS\obj\x64\Debug\SIMS.vbproj.CopyComplete

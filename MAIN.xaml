@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:SIMS"
         mc:Ignorable="d"
         Closing="Shutdown"
@@ -57,7 +58,7 @@
                 </RibbonGroup>
                 <RibbonGroup x:Name="Color" Header="Colors">
                     <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Red" KeyTip="R" IsChecked="True"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Green" KeyTip="G"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Green" KeyTip="G" Mouse.PreviewMouseDown="Runner"/>
                     <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
@@ -161,7 +162,13 @@
             </RibbonTab>
         </Ribbon>
 
-        <WindowsFormsHost Grid.Row="1">
+        <WindowsFormsHost Name="WindowsFormsHost" Grid.Row="1">
+            <wf:DataGridView   Name="DataGridUsers" AutoGenerateColumns="True" ColumnHeadersHeight="19" BackgroundColor="RED"  >
+                
+
+
+            </wf:DataGridView>
+ 
 
 
         </WindowsFormsHost>
