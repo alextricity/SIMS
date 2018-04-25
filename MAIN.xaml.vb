@@ -1,4 +1,8 @@
-﻿
+﻿Imports System.Data.Odbc
+
+Imports System.IO
+Imports System.Configuration
+Imports System.Data
 
 Public Class MAIN
     Private Sub MAIN_MouseLeftButtonDown(ByVal sender As Object, ByVal e As System.Windows.Input.MouseButtonEventArgs) Handles Me.MouseLeftButtonDown

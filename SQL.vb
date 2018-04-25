@@ -1,5 +1,4 @@
 ﻿Imports System.Data.Odbc
-
 Imports System.IO
 Imports System.Configuration
 Imports System.Data
@@ -21,23 +20,6 @@ End Module
 
 Partial Public Class MAIN
 
-    Sub Getdata()
-        Dim dgw As New DataGrid
-        Dim myConnection As OdbcConnection = New OdbcConnection
-        myConnection.ConnectionString = "Dsn=sims;dbq=MEDIA\SIMS.mdb;defaultdir=MEDIA;driverid=25;fil=MS Access;maxbuffersize=2048;pagetimeout=5;uid=admin" 'cs
-        ' create a data adapter 
-        Dim da As OdbcDataAdapter = New OdbcDataAdapter("Select * from Users", myConnection)
-
-
-        ' create a new dataset 
-        Dim ds As DataSet = New DataSet
-        ' fill dataset 
-        da.Fill(ds, "Users")
-
-        dgw.DataContext = ds.DefaultViewManager
-    End Sub
-
-
-
+    ////////////////////////////////////////////////////asdasda
 
 End Class

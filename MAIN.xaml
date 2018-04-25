@@ -11,8 +11,8 @@
         BorderThickness="0"
         Height="450" Width="800" Opacity="0.92" Icon="MEDIA\IMG\lifesaver.png" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-   
-        
+
+
     </Window.Resources>
 
     <Grid>
@@ -57,7 +57,7 @@
                 </RibbonGroup>
                 <RibbonGroup x:Name="Color" Header="Colors">
                     <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Red" KeyTip="R" IsChecked="True"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Green" KeyTip="G" Mouse.PreviewMouseDown="Getdata"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Green" KeyTip="G"/>
                     <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
@@ -161,10 +161,10 @@
             </RibbonTab>
         </Ribbon>
 
-        <DataGrid Height="200" Grid.Row="1" Name="dgw">
-            
-        </DataGrid>
+        <WindowsFormsHost Grid.Row="1">
 
 
+        </WindowsFormsHost>
+        
     </Grid>
 </Window>
