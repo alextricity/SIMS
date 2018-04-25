@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:SIMS"
         mc:Ignorable="d"
         Closing="Shutdown"
@@ -21,7 +22,9 @@
             </Button.Background>
         </Button>
         <Button x:Name="MaximizeButton" Mouse.PreviewMouseUp="Shutdown" />
-        <Button x:Name="CloseButton" Mouse.PreviewMouseUp="Shutdown"/>
+        <Button x:Name="CloseButton" Mouse.PreviewMouseUp="Shutdown">
+
+        </Button>
 
         <Ribbon x:Name="Ribbon" SelectedIndex="0" VerticalAlignment="Top" >
             <!-- Help Pane, located at the right-hand side -->
@@ -35,7 +38,7 @@
                     <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA/lifesaver.png" Mouse.PreviewMouseUp="Shutdown"/>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
-            
+
             <!--Start-->
 
             <RibbonTab Header="Home" KeyTip="H" >
@@ -54,7 +57,7 @@
                     <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
-        
+
             <RibbonTab Header="Point Of Sale" KeyTip="L">
 
                 <RibbonGroup x:Name="NewOrder" Header="Pay Balance">
@@ -78,7 +81,7 @@
                     <RibbonButton LargeImageSource="MEDIA/credit cards.png" Label="Check Out" KeyTip="B" ToolTip="Check out selected items"/>
                 </RibbonGroup>
             </RibbonTab>
-            
+
             <RibbonTab Header="Manage Users" KeyTip="U">
                 <RibbonGroup x:Name="NewUser" Header="New User">
                     <RibbonButton LargeImageSource="MEDIA/contact-new.png" Label="New" KeyTip="B"/>
@@ -98,7 +101,7 @@
                     <RibbonButton LargeImageSource="MEDIA/trash.png" Label="Delete" KeyTip="B" Width="65"/>
                 </RibbonGroup>
             </RibbonTab>
-            
+
             <RibbonTab Header="Inventory" KeyTip="L">
                 <RibbonGroup x:Name="ManageItems" Header="Manage Items">
                     <RibbonButton LargeImageSource="MEDIA\product.png" Label="New" KeyTip="B"/>
@@ -144,8 +147,8 @@
                     <RibbonRadioButton LargeImageSource="MEDIA/page-zoom.png" Label="Audit all actions" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
-            
-            
+
+
             <RibbonTab Header="Ledger" KeyTip="U">
                 <!-- -->
                 <RibbonGroup x:Name="Ledger" Header="Ledger">
@@ -153,7 +156,11 @@
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
-        
 
+        <WindowsFormsHost Margin="0,230,0,45">
+                <wf:DataGridView>
+                    
+                </wf:DataGridView>
+        </WindowsFormsHost>
     </Grid>
 </Window>
