@@ -1,4 +1,4 @@
-﻿<Window x:Class="MAIN"
+﻿<Window x:Name="Window" x:Class="MAIN"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,15 +10,22 @@
         WindowStyle="None"
         AllowsTransparency="True"
         BorderThickness="0"
-        Background="Transparent"
-        Height="450" Width="800" Opacity="0.9" Icon="MEDIA/lifesaver.png" WindowStartupLocation="CenterScreen">
-    <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="0"/>
-    </WindowChrome.WindowChrome>
+        Height="450" Width="800" Opacity="0.92" Icon="MEDIA\IMG\lifesaver.png" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+   
+        
+    </Window.Resources>
+
     <Grid>
-        <Button x:Name="MinimizeButton" Mouse.PreviewMouseUp="Shutdown" Panel.ZIndex="999" Width="22" Height="22" HorizontalAlignment="right" VerticalAlignment="Top" Margin="0,25,0,0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="115" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="MinimizeButton" Mouse.PreviewMouseUp="Shutdown" Panel.ZIndex="999" Width="22" Height="22" HorizontalAlignment="right" VerticalAlignment="Top" Margin="0,1,0,0" >
             <Button.Background>
-                <ImageBrush ImageSource="MEDIA/application-exit.png"/>
+                <ImageBrush ImageSource="MEDIA\IMG\application-exit.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="MaximizeButton" Mouse.PreviewMouseUp="Shutdown" />
@@ -26,7 +33,7 @@
 
         </Button>
 
-        <Ribbon x:Name="Ribbon" SelectedIndex="0" VerticalAlignment="Top" >
+        <Ribbon x:Name="Ribbon" Grid.Row="0" SelectedIndex="0" VerticalAlignment="Top" Height="140" Margin="0,-24,0,0">
             <!-- Help Pane, located at the right-hand side -->
             <Ribbon.HelpPaneContent >
                 <RibbonButton IsEnabled="False"></RibbonButton>
@@ -34,8 +41,8 @@
 
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu KeyTip="F">
-                    <RibbonApplicationMenuItem Header="Options" ImageSource="MEDIA/lifesaver.png" />
-                    <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA/lifesaver.png" Mouse.PreviewMouseUp="Shutdown"/>
+                    <RibbonApplicationMenuItem Header="Options" ImageSource="MEDIA\IMG\lifesaver.png" />
+                    <RibbonApplicationMenuItem Header="Exit" ImageSource="MEDIA\IMG\lifesaver.png" Mouse.PreviewMouseUp="Shutdown"/>
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
 
@@ -43,108 +50,108 @@
 
             <RibbonTab Header="Home" KeyTip="H" >
                 <RibbonGroup x:Name="ClipboardGroup" Header="Clipboard">
-                    <RibbonMenuButton LargeImageSource="MEDIA/lifesaver.png" Label="Paste" KeyTip="V">
-                        <RibbonMenuItem ImageSource="MEDIA/lifesaver.png" Header="Keep Text Only" KeyTip="T"/>
-                        <RibbonMenuItem ImageSource="MEDIA/lifesaver.png" Header="Paste Special..." KeyTip="S"/>
+                    <RibbonMenuButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Paste" KeyTip="V">
+                        <RibbonMenuItem ImageSource="MEDIA\IMG\lifesaver.png" Header="Keep Text Only" KeyTip="T"/>
+                        <RibbonMenuItem ImageSource="MEDIA\IMG\lifesaver.png" Header="Paste Special..." KeyTip="S"/>
                     </RibbonMenuButton>
-                    <RibbonButton SmallImageSource="MEDIA/lifesaver.png" Label="Cut" KeyTip="X" />
-                    <RibbonButton SmallImageSource="MEDIA/lifesaver.png" Label="Copy" KeyTip="C" />
-                    <RibbonButton SmallImageSource="MEDIA/lifesaver.png" Label="Format Painter" KeyTip="FP" />
+                    <RibbonButton SmallImageSource="MEDIA\IMG\lifesaver.png" Label="Cut" KeyTip="X" />
+                    <RibbonButton SmallImageSource="MEDIA\IMG\lifesaver.png" Label="Copy" KeyTip="C" />
+                    <RibbonButton SmallImageSource="MEDIA\IMG\lifesaver.png" Label="Format Painter" KeyTip="FP" />
                 </RibbonGroup>
                 <RibbonGroup x:Name="Color" Header="Colors">
-                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Red" KeyTip="R" IsChecked="True"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Green" KeyTip="G"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/lifesaver.png" Label="Blue" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Red" KeyTip="R" IsChecked="True"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Green" KeyTip="G" Mouse.PreviewMouseDown="Getdata"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\lifesaver.png" Label="Blue" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
 
             <RibbonTab Header="Point Of Sale" KeyTip="L">
 
                 <RibbonGroup x:Name="NewOrder" Header="Pay Balance">
-                    <RibbonButton LargeImageSource="MEDIA\pay.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\pay.png" Label="Customer Payment" KeyTip="B" ToolTip="Pay an outstanding balance"/>
                 </RibbonGroup>
                 <RibbonButton Label="" Width="40" IsEnabled="False" />
                 <RibbonGroup x:Name="LoadCustomer" Header="1, Load Customer">
-                    <RibbonRadioButton LargeImageSource="MEDIA/newuser.png" Label="New Customer"  KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/returnuser.png" Label="Repeat Customer" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\newuser.png" Label="New Customer"  KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\returnuser.png" Label="Repeat Customer" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="Cart" Header="2, New Order">
-                    <RibbonButton LargeImageSource="MEDIA\Empty shopping cart.png" Label="Add&#160;Items"  Margin="5" KeyTip="B" Width="68" Height="55"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\Empty shopping cart.png" Label="Add&#160;Items"  Margin="5" KeyTip="B" Width="68" Height="55"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="Checkout" Header="3, Quote or Check Out">
-                    <RibbonButton LargeImageSource="MEDIA/application-vnd.ms-excel.png" Label="Prepare Quote" KeyTip="q"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\application-vnd.ms-excel.png" Label="Prepare Quote" KeyTip="q"/>
                     <RibbonButton Label="" Width="12" IsEnabled="False" />
-                    <RibbonButton LargeImageSource="MEDIA/application-vnd.ms-access.png" Label="Save" KeyTip="w" ToolTip="Once a quote is built, save to database"/>
-                    <RibbonButton LargeImageSource="MEDIA/application-postscript.png" Label="Print" KeyTip="e" ToolTip="Once a quote is built, save to database"/>
-                    <RibbonButton LargeImageSource="MEDIA\application-x-mimearchive.png" Label="Send" KeyTip="r" ToolTip="Once a quote is built, send to customer"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\application-vnd.ms-access.png" Label="Save" KeyTip="w" ToolTip="Once a quote is built, save to database"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\application-postscript.png" Label="Print" KeyTip="e" ToolTip="Once a quote is built, save to database"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\application-x-mimearchive.png" Label="Send" KeyTip="r" ToolTip="Once a quote is built, send to customer"/>
                     <RibbonButton Label="" Width="12" IsEnabled="False" />
-                    <RibbonButton LargeImageSource="MEDIA/credit cards.png" Label="Check Out" KeyTip="B" ToolTip="Check out selected items"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\credit cards.png" Label="Check Out" KeyTip="B" ToolTip="Check out selected items"/>
                 </RibbonGroup>
             </RibbonTab>
 
             <RibbonTab Header="Manage Users" KeyTip="U">
                 <RibbonGroup x:Name="NewUser" Header="New User">
-                    <RibbonButton LargeImageSource="MEDIA/contact-new.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\contact-new.png" Label="New" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ModifyUser" Header="Modify User">
-                    <RibbonButton LargeImageSource="MEDIA/preferences-other.png" Label="Modify" KeyTip="B" Width="65"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\preferences-other.png" Label="Modify" KeyTip="B" Width="65"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ModifyUserType" Header="Set User Type">
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="System Admin" KeyTip="R"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="Supervisor" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="Warehouse" KeyTip="G"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="Ordering" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="Sales" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/hat.png" Label="DISABLED" KeyTip="B"  IsChecked="True"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="System Admin" KeyTip="R"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="Supervisor" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="Warehouse" KeyTip="G"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="Ordering" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="Sales" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\hat.png" Label="DISABLED" KeyTip="B"  IsChecked="True"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="DeleteUser" Header="Delete User">
-                    <RibbonButton LargeImageSource="MEDIA/trash.png" Label="Delete" KeyTip="B" Width="65"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\trash.png" Label="Delete" KeyTip="B" Width="65"/>
                 </RibbonGroup>
             </RibbonTab>
 
             <RibbonTab Header="Inventory" KeyTip="L">
                 <RibbonGroup x:Name="ManageItems" Header="Manage Items">
-                    <RibbonButton LargeImageSource="MEDIA\product.png" Label="New" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA\preferences-other.png" Label="Edit" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA\trash.png" Label="Delete" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\product.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\preferences-other.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\trash.png" Label="Delete" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="WarehouseTasks" Header="Warehouse Tasks">
-                    <RibbonRadioButton LargeImageSource="MEDIA/Box.png" Label="Add Inventory" KeyTip="B" ToolTip="New Shipment, Return, etc"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/Box.png" Label="Remove Inventory" KeyTip="B" ToolTip="Sale, Removed, etc"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/kspread.png" Label="Get Item Info" KeyTip="B" ToolTip="Scan to get info about an item"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/page-zoom.png" Label="Audit" KeyTip="B" ToolTip="Get all details about an item"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\Box.png" Label="Add Inventory" KeyTip="B" ToolTip="New Shipment, Return, etc"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\Box.png" Label="Remove Inventory" KeyTip="B" ToolTip="Sale, Removed, etc"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\kspread.png" Label="Get Item Info" KeyTip="B" ToolTip="Scan to get info about an item"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\page-zoom.png" Label="Audit" KeyTip="B" ToolTip="Get all details about an item"/>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Customers" KeyTip="L">
                 <RibbonGroup x:Name="ManageCustomers" Header="Manage Customers">
-                    <RibbonButton LargeImageSource="MEDIA/list-add-user.png" Label="New" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA/preferences-desktop-user.png" Label="Edit" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA/trash.png" Label="Delete" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\list-add-user.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\preferences-desktop-user.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\trash.png" Label="Delete" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ReportCustomers" Header="Customer Details">
-                    <RibbonRadioButton LargeImageSource="MEDIA/preferences-contact-list.png" Label="Detailed Info" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/application-vnd.ms-excel.png" Label="Sales Report" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/credit cards.png" Label="Payment History" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/page-zoom.png" Label="Audit all actions" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\preferences-contact-list.png" Label="Detailed Info" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\application-vnd.ms-excel.png" Label="Sales Report" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\credit cards.png" Label="Payment History" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\page-zoom.png" Label="Audit all actions" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Suppliers" KeyTip="L">
                 <RibbonGroup x:Name="ManageSupplier" Header="Manage Supplier">
-                    <RibbonButton LargeImageSource="MEDIA/list-add-user.png" Label="New" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA/preferences-desktop-user.png" Label="Edit" KeyTip="B"/>
-                    <RibbonButton LargeImageSource="MEDIA/trash.png" Label="Delete" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\list-add-user.png" Label="New" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\preferences-desktop-user.png" Label="Edit" KeyTip="B"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\trash.png" Label="Delete" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="ReportSupplier" Header="Supplier Details">
-                    <RibbonRadioButton LargeImageSource="MEDIA/preferences-contact-list.png" Label="Detailed Info" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/application-vnd.ms-excel.png" Label="Product Report" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/application-vnd.ms-access.png" Label="Inventory History" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/page-zoom.png" Label="Audit all actions" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\preferences-contact-list.png" Label="Detailed Info" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\application-vnd.ms-excel.png" Label="Product Report" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\application-vnd.ms-access.png" Label="Inventory History" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\page-zoom.png" Label="Audit all actions" KeyTip="B"/>
                 </RibbonGroup>
                 <RibbonGroup x:Name="SupplyStatus" Header="Supply Status">
-                    <RibbonRadioButton LargeImageSource="MEDIA/preferences-contact-list.png" Label="Low Inventory List" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/application-vnd.ms-excel.png" Label="Supply Order History" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/application-vnd.ms-access.png" Label="Upcoming Refill" ToolTip="Enter inventory you have coming so it will show as available (but not actually in stock) so pwople can order online with a delay alert" KeyTip="B"/>
-                    <RibbonRadioButton LargeImageSource="MEDIA/page-zoom.png" Label="Audit all actions" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\preferences-contact-list.png" Label="Low Inventory List" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\application-vnd.ms-excel.png" Label="Supply Order History" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\application-vnd.ms-access.png" Label="Upcoming Refill" ToolTip="Enter inventory you have coming so it will show as available (but not actually in stock) so pwople can order online with a delay alert" KeyTip="B"/>
+                    <RibbonRadioButton LargeImageSource="MEDIA\IMG\page-zoom.png" Label="Audit all actions" KeyTip="B"/>
                 </RibbonGroup>
             </RibbonTab>
 
@@ -152,10 +159,18 @@
             <RibbonTab Header="Ledger" KeyTip="U">
                 <!-- -->
                 <RibbonGroup x:Name="Ledger" Header="Ledger">
-                    <RibbonButton LargeImageSource="MEDIA/kwalletmanager.png" Label="View All Transactions" KeyTip="R"/>
+                    <RibbonButton LargeImageSource="MEDIA\IMG\kwalletmanager.png" Label="View All Transactions" KeyTip="R"/>
                 </RibbonGroup>
             </RibbonTab>
         </Ribbon>
+<<<<<<< HEAD
+=======
+
+        <DataGrid Height="200" Grid.Row="1" Name="dgw">
+            
+        </DataGrid>
+
+>>>>>>> 6c754269b078ca2bc82cd8d7c731a5ee2c9a7d66
 
         <WindowsFormsHost Margin="0,230,0,45">
                 <wf:DataGridView>
